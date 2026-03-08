@@ -1,0 +1,28 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+@font-face {
+  font-family: "Coolvetica-Regular";
+  src: local("Coolvetica-Regular");
+}
+
+@font-face {
+  font-family: "Helvetica Neue-Regular";
+  src: local("Helvetica Neue-Regular");
+}
