@@ -57,15 +57,15 @@
 
   /* Летающие слова */
   --flying-words-padding-top: 220px;
-  --flying-words-padding-top-mobile: 80px;
+  --flying-words-padding-top-mobile: 120px;
   --word-tag-padding: 14px 32px;
   --word-tag-padding-mobile: 6px 12px;
   --word-tag-font-size: 24px;
-  --word-tag-font-size-mobile: 14px;
+  --word-tag-font-size-mobile: 12px;
   --word-tag-border-radius: 35px;
   --word-tag-border-radius-mobile: 20px;
   --word-gap: 20px;
-  --word-gap-mobile: 10px;
+  --word-gap-mobile: 8px;
 
   /* Hero секция */
   --hero-padding: 40px 20px 60px;
@@ -75,16 +75,15 @@
   --hero-subtitle-font-size-mobile: 18px;
 
   /* Карточки фич */
-  --feature-card-padding: 30px;
+  --feature-card-padding: 25px;
   --feature-card-padding-mobile: 20px;
   --feature-card-border-radius: 50px;
-  --feature-card-border-radius-mobile: 30px;
-  --feature-card-min-height: 96px;
+  --feature-card-min-height: 80px;
 
   /* Контакты */
-  --contacts-gap: 30px;
-  --contacts-gap-mobile: 15px;
-  --contact-card-padding: 20px 30px;
+  --contacts-gap: 50px;
+  --contacts-gap-mobile: 20px;
+  --contact-card-padding: 40px 60px;
   --contact-card-border-radius: 30px;
 
   /* Футер */
@@ -157,19 +156,19 @@ body {
 
 /* Индивидуальные скорости для каждого ряда */
 .words-row:nth-child(1) {
-  animation: scroll-left 12s linear infinite;
+  animation: scroll-left 10s linear infinite alternate;
 }
 
 .words-row:nth-child(2) {
-  animation: scroll-right 8s linear infinite;
+  animation: scroll-right 6s linear infinite alternate;
 }
 
 .words-row:nth-child(3) {
-  animation: scroll-left 15s linear infinite;
+  animation: scroll-left 14s linear infinite alternate;
 }
 
 .words-row:nth-child(4) {
-  animation: scroll-right 10s linear infinite;
+  animation: scroll-right 8s linear infinite alternate;
 }
 
 /* Анимации движения */
@@ -177,17 +176,15 @@ body {
   0% {
     transform: translateX(0);
   }
-
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-30%);
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-30%);
   }
-
   100% {
     transform: translateX(0);
   }
@@ -366,6 +363,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: var(--section-padding);
+  scroll-margin-top: 100px;
 }
 
 /* Карточка фичи */
@@ -415,6 +413,7 @@ body {
 .contacts {
   text-align: center;
   padding: var(--section-padding);
+  scroll-margin-top: 100px;
 }
 
 .contacts-title {
@@ -543,27 +542,24 @@ body {
   }
 
   .header-container {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     padding: var(--header-padding-mobile);
     border-radius: var(--header-border-radius-mobile);
   }
 
   .logo {
     font-size: var(--logo-font-size-mobile);
-    margin-right: 0;
+    margin-right: auto;
   }
 
-  /* Навигация на мобилках */
+  /* Навигация на мобилках - скрываем */
   .nav {
-    margin-left: 0;
-    margin-right: 0;
-    order: 2;
-    /* Порядок отображения в flex-контейнере */
-    gap: var(--nav-gap-mobile);
+    display: none;
   }
 
   .btn-primary {
-    order: 3;
+    margin-left: auto;
   }
 
   /* Размеры кнопок на мобилках */
@@ -586,6 +582,8 @@ body {
     padding: var(--flying-words-padding-top-mobile) 0 20px;
     margin: 0;
     background: transparent;
+    position: relative;
+    z-index: 5;
   }
 
   .words-row-mobile {
@@ -593,7 +591,7 @@ body {
     gap: var(--word-gap-mobile);
     flex-wrap: nowrap;
     width: fit-content;
-    animation: scroll-left 8s linear infinite;
+    animation: scroll-left 8s linear infinite alternate;
     padding: 5px 0;
   }
 
@@ -602,7 +600,7 @@ body {
     gap: var(--word-gap-mobile);
     flex-wrap: nowrap;
     width: fit-content;
-    animation: scroll-right 6s linear infinite;
+    animation: scroll-right 4s linear infinite alternate;
     padding: 5px 0;
   }
 
