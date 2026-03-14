@@ -1,3 +1,109 @@
+/* ========== ПЕРЕМЕННЫЕ ========== */
+:root {
+  /* Цветовая схема */
+  --color-primary: #f07331;
+  --color-primary-light: #eb6343;
+  --color-secondary: #fec842;
+  --color-accent: #2f43ca;
+  --color-bg: #ffffff;
+  --color-text: #000000;
+
+  /* Типографика - размеры */
+  --font-size-hero-title: 80px;
+  --font-size-hero-subtitle: 30px;
+  --font-size-section-title: 80px;
+  --font-size-section-subtitle: 30px;
+  --font-size-feature: 30px;
+  --font-size-card: 20px;
+  --font-size-footer: 25px;
+  --font-size-footer-mobile: 18px;
+  --font-size-copyright: 20px;
+  --font-size-copyright-mobile: 16px;
+
+  /* Типографика - жирность */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Хедер */
+  --header-top-offset: 30px;
+  --header-top-offset-mobile: 10px;
+  --header-width: calc(100% - 80px);
+  --header-width-mobile: calc(100% - 40px);
+  --header-max-width: 1320px;
+  --header-padding: 12px 24px;
+  --header-padding-mobile: 10px 15px;
+  --header-border-radius: 50px;
+  --header-border-radius-mobile: 25px;
+
+  /* Логотип */
+  --logo-font-size: 50px;
+  --logo-font-size-mobile: 22px;
+  --logo-font-weight: var(--font-weight-medium);
+
+  /* Навигация */
+  --nav-gap: 8px;
+  --nav-gap-mobile: 5px;
+  --nav-margin-right: 15px;
+
+  /* Кнопки в хедере */
+  --header-btn-font-size: 25px;
+  --header-btn-padding: 10px 25px;
+  --header-btn-border: 2px solid var(--color-text);
+  --header-btn-border-radius: 30px;
+  --header-btn-font-size-mobile: 14px;
+  --header-btn-padding-mobile: 6px 12px;
+  --header-btn-border-width-mobile: 1.5px;
+
+  /* Летающие слова */
+  --flying-words-padding-top: 220px;
+  --flying-words-padding-top-mobile: 80px;
+  --word-tag-padding: 14px 32px;
+  --word-tag-padding-mobile: 6px 12px;
+  --word-tag-font-size: 24px;
+  --word-tag-font-size-mobile: 14px;
+  --word-tag-border-radius: 35px;
+  --word-tag-border-radius-mobile: 20px;
+  --word-gap: 20px;
+  --word-gap-mobile: 10px;
+
+  /* Hero секция */
+  --hero-padding: 40px 20px 60px;
+  --hero-padding-mobile: 20px 20px 30px;
+  --hero-title-margin-bottom: 20px;
+  --hero-title-font-size-mobile: 42px;
+  --hero-subtitle-font-size-mobile: 18px;
+
+  /* Карточки фич */
+  --feature-card-padding: 30px;
+  --feature-card-padding-mobile: 20px;
+  --feature-card-border-radius: 50px;
+  --feature-card-border-radius-mobile: 30px;
+  --feature-card-min-height: 96px;
+
+  /* Контакты */
+  --contacts-gap: 30px;
+  --contacts-gap-mobile: 15px;
+  --contact-card-padding: 20px 30px;
+  --contact-card-border-radius: 30px;
+
+  /* Футер */
+  --footer-padding: 40px 0;
+  --footer-padding-mobile: 30px 0;
+  --footer-margin-top: 60px;
+  --footer-gap: 30px;
+  --footer-gap-mobile: 15px;
+  --footer-border-top: 2px solid var(--color-text);
+  --footer-border-top-mobile: 3px;
+  --footer-max-width: 1800px;
+
+  /* Отступы */
+  --section-padding: 60px 0;
+  --section-padding-mobile: 40px 0;
+  --container-padding: 0 20px;
+}
+
+/* ========== ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ ========== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,40 +116,63 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-}
-
-/* Flying Words Banner - Full Width */
-.flying-words-wrapper {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.flying-words {
-  padding-top: 220px;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
+/* ========== ЛЕТАЮЩИЕ СЛОВА ========== */
+/* Десктопная версия */
+.flying-words-wrapper {
+  overflow: hidden;
+  background: transparent;
+  padding: var(--flying-words-padding-top) 0 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.flying-words {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Ряды слов с разной скоростью анимации */
 .words-row {
   display: flex;
-  gap: 20px;
+  gap: var(--word-gap);
   margin-bottom: 15px;
   flex-wrap: nowrap;
-  animation: scroll-left 30s linear infinite;
+  width: fit-content;
+  will-change: transform;
+  background: transparent;
+  padding: 10px 0;
 }
 
-.words-row:nth-child(even) {
-  animation: scroll-right 30s linear infinite;
+/* Индивидуальные скорости для каждого ряда */
+.words-row:nth-child(1) {
+  animation: scroll-left 12s linear infinite;
 }
 
+.words-row:nth-child(2) {
+  animation: scroll-right 8s linear infinite;
+}
+
+.words-row:nth-child(3) {
+  animation: scroll-left 15s linear infinite;
+}
+
+.words-row:nth-child(4) {
+  animation: scroll-right 10s linear infinite;
+}
+
+/* Анимации движения */
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -64,54 +193,57 @@ body {
   }
 }
 
+/* Стили для тегов слов */
 .word-tag {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  border-radius: 35px;
-  font-size: 24px;
+  padding: var(--word-tag-padding);
+  border-radius: var(--word-tag-border-radius);
+  font-size: var(--word-tag-font-size);
   color: #ffffff;
-  background-color: #f07331;
+  background-color: var(--color-primary);
+  white-space: nowrap;
 }
 
+/* Цветовые варианты слов */
 .word-tag.word-yellow {
-  background-color: #fec842;
-  color: #000000;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
 }
 
 .word-tag.word-blue {
-  background-color: #2f43ca;
+  background-color: var(--color-accent);
 }
 
+/* Чередование цветов для нечетных слов */
 .word-tag:nth-child(odd):not(.word-yellow):not(.word-blue) {
-  background-color: #eb6343;
+  background-color: var(--color-primary-light);
 }
 
-/* Mobile Flying Words */
-.flying-words-mobile {
+/* Мобильная версия летающих слов - по умолчанию скрыта */
+.flying-words-mobile-top {
   display: none;
 }
 
-/* Landing Container */
+/* ========== КОНТЕЙНЕР ЛЕНДИНГА ========== */
 .landing {
-  min-width: 1280px;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 
-/* Header */
+/* ========== ХЕДЕР ========== */
 .header {
   position: fixed;
-  top: 30px;
+  top: var(--header-top-offset);
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 80px);
-  max-width: 1320px;
+  width: var(--header-width);
+  max-width: var(--header-max-width);
   z-index: 100;
 }
 
@@ -119,40 +251,50 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 50px;
-  padding: 12px 24px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-text);
+  border-radius: var(--header-border-radius);
+  padding: var(--header-padding);
   box-shadow: 0 15px 34px rgba(99, 99, 99, 0.1);
 }
 
+/* Логотип */
 .logo {
-  font-family: "Coolvetica-Regular", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 35px;
-  font-weight: 400;
-  color: #000000;
+  font-family: 'Coolvetica', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: var(--logo-font-size);
+  font-weight: var(--logo-font-weight);
+  color: var(--color-text);
+  margin-right: auto;
 }
 
+/* Навигация - ОТВЕЧАЕТ ЗА РАСПОЛОЖЕНИЕ КНОПОК СПРАВА */
 .nav {
   display: flex;
-  gap: 20px;
+  gap: var(--nav-gap);
+  margin-left: auto;
+  /* Прижимает навигацию к правому краю */
+  margin-right: var(--nav-margin-right);
+  /* Отступ перед кнопкой Играть */
 }
 
+/* КНОПКИ В ХЕДЕРЕ - размеры и стили */
 .nav-link {
-  font-size: 25px;
-  color: #000000;
+  font-size: var(--header-btn-font-size);
+  color: var(--color-text);
   text-decoration: none;
-  padding: 10px 25px;
-  border: 2px solid #000000;
-  border-radius: 30px;
+  padding: var(--header-btn-padding);
+  border: var(--header-btn-border);
+  border-radius: var(--header-btn-border-radius);
   transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }
 
+/* Базовые стили для всех кнопок */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -161,14 +303,19 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Кнопка Играть в хедере */
 .btn-primary {
-  background-color: #fec842;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border: var(--header-btn-border);
+  flex-shrink: 0;
+  /* Запрещает кнопке сжиматься */
+  font-size: var(--header-btn-font-size);
+  padding: var(--header-btn-padding);
 }
 
 .btn-primary:hover {
@@ -176,9 +323,10 @@ body {
   box-shadow: 0 4px 12px rgba(254, 200, 66, 0.4);
 }
 
+/* Большая кнопка в hero секции */
 .btn-large {
-  background-color: #f07331;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   font-size: 20px;
   padding: 16px 32px;
   border-radius: 30px;
@@ -189,255 +337,305 @@ body {
   box-shadow: 0 4px 12px rgba(240, 115, 49, 0.4);
 }
 
-/* Hero Section */
+/* ========== HERO СЕКЦИЯ ========== */
 .hero {
   text-align: center;
-  padding: 120px 0 60px;
+  padding: var(--hero-padding);
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .hero-title {
-  font-family: "Coolvetica-Regular", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 60px;
-  font-weight: 400;
-  color: #000000;
-  margin-bottom: 20px;
+  font-family: 'Coolvetica', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: var(--font-size-hero-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--hero-title-margin-bottom);
 }
 
 .hero-subtitle {
-  font-size: 30px;
-  color: #000000;
+  font-size: var(--font-size-hero-subtitle);
+  color: var(--color-text);
   margin-bottom: 40px;
 }
 
-/* Features Section */
+/* ========== FEATURES СЕКЦИЯ (Карточки с преимуществами) ========== */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 60px 0;
+  padding: var(--section-padding);
 }
 
+/* Карточка фичи */
 .feature-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
-  border-radius: 50px;
-  min-height: 96px;
-  background-color: #f07331;
+  padding: var(--feature-card-padding);
+  border-radius: var(--feature-card-border-radius);
+  min-height: var(--feature-card-min-height);
+  background-color: var(--color-primary);
 }
 
+/* Варианты цветов для карточек */
 .feature-card-orange {
-  background-color: #eb6343;
+  background-color: var(--color-primary-light);
 }
 
 .feature-card-yellow {
-  background-color: #fec842;
+  background-color: var(--color-secondary);
 }
 
 .feature-title {
-  font-size: 30px;
-  font-weight: 400;
-  color: #ffffff;
+  font-size: var(--font-size-feature);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-bg);
   margin-bottom: 8px;
 }
 
+/* Стили для текста в цветных карточках */
 .feature-card-orange .feature-title,
-.feature-card-yellow .feature-title {
-  color: #000000;
+.feature-card-yellow .feature-title,
+.feature-card-orange .feature-text,
+.feature-card-yellow .feature-text {
+  color: var(--color-text);
 }
 
 .feature-text {
-  font-size: 30px;
-  font-weight: 400;
-  color: #ffffff;
+  font-size: var(--font-size-feature);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-bg);
   text-align: center;
 }
 
-.feature-card-orange .feature-text,
-.feature-card-yellow .feature-text {
-  color: #000000;
-}
-
-/* Contacts Section */
+/* ========== CONTACTS СЕКЦИЯ ========== */
 .contacts {
   text-align: center;
-  padding: 60px 0;
+  padding: var(--section-padding);
 }
 
 .contacts-title {
-  font-family: "Coolvetica-Regular", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 60px;
-  font-weight: 400;
-  color: #000000;
+  font-family: 'Coolvetica', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
   margin-bottom: 20px;
 }
 
 .contacts-subtitle {
-  font-size: 30px;
-  color: #000000;
+  font-size: var(--font-size-section-subtitle);
+  color: var(--color-text);
   margin-bottom: 40px;
 }
 
 .contacts-cards {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: var(--contacts-gap);
   flex-wrap: wrap;
 }
 
+/* Карточка контакта */
 .contact-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 20px 30px;
-  border-radius: 30px;
+  padding: var(--contact-card-padding);
+  border-radius: var(--contact-card-border-radius);
   transform: rotate(-5deg);
-  border: 3px solid #000000;
+  border: 2px solid var(--color-text);
 }
 
+/* Разный поворот для карточек */
 .contact-card:first-child {
-  background-color: #fec842;
+  background-color: var(--color-secondary);
   transform: rotate(5deg);
 }
 
 .contact-card:last-child {
-  background-color: #eb6343;
+  background-color: var(--color-primary-light);
 }
 
 .contact-label {
-  font-size: 20px;
-  color: #000000;
+  font-size: var(--font-size-card);
+  color: var(--color-text);
 }
 
 .contact-value {
-  font-size: 20px;
-  color: #000000;
+  font-size: var(--font-size-card);
+  color: var(--color-text);
 }
 
-/* Footer */
+/* ========== ФУТЕР ========== */
 .footer {
-  border-top: 3px solid #000000;
-  padding: 40px 0;
-  margin-top: 60px;
+  border-top: var(--footer-border-top);
+  padding: var(--footer-padding);
+  margin-top: var(--footer-margin-top);
+  width: 100%;
 }
 
+/* Контейнер футера - центрирование контента */
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: var(--footer-max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  width: 100%;
+  position: static;
+  left: auto;
 }
 
+/* Ссылки в футере - расположены слева */
 .footer-links {
   display: flex;
-  gap: 30px;
+  gap: var(--footer-gap);
   align-items: center;
 }
 
 .footer-link {
-  font-size: 25px;
-  color: #000000;
+  font-size: var(--font-size-footer);
+  color: var(--color-text);
   text-decoration: none;
 }
 
+/* Копирайт - расположен справа */
 .footer-copyright {
-  font-size: 20px;
-  color: #000000;
+  font-size: var(--font-size-copyright);
+  color: var(--color-text);
 }
 
-/* Responsive */
-@media (max-width: 1400px) {
-  .landing {
-    min-width: 100%;
-  }
+/* ========== АДАПТИВНОСТЬ ========== */
 
+/* Планшеты и небольшие десктопы */
+@media (max-width: 1400px) {
   .features {
     grid-template-columns: 1fr;
     max-width: 600px;
     margin: 0 auto;
   }
+}
 
-  .flying-words-wrapper {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+@media (max-width: 1200px) {
+  .footer {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
+/* Мобильные устройства */
 @media (max-width: 768px) {
+
+  /* Контейнер */
   .landing {
-    padding: 0 20px;
-    min-width: 100%;
+    padding: 0;
   }
 
+  /* Хедер */
   .header {
-    width: calc(100% - 40px);
-    top: 15px;
+    width: var(--header-width-mobile);
+    top: var(--header-top-offset-mobile);
   }
 
   .header-container {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-    border-radius: 25px;
-    border-width: 3px;
-  }
-
-  .nav {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .nav-link {
-    font-size: 18px;
-    padding: 8px 16px;
+    flex-wrap: wrap;
+    padding: var(--header-padding-mobile);
+    border-radius: var(--header-border-radius-mobile);
   }
 
   .logo {
-    font-size: 28px;
+    font-size: var(--logo-font-size-mobile);
+    margin-right: 0;
   }
 
+  /* Навигация на мобилках */
+  .nav {
+    margin-left: 0;
+    margin-right: 0;
+    order: 2;
+    /* Порядок отображения в flex-контейнере */
+    gap: var(--nav-gap-mobile);
+  }
+
+  .btn-primary {
+    order: 3;
+  }
+
+  /* Размеры кнопок на мобилках */
+  .btn-primary,
+  .nav-link {
+    font-size: var(--header-btn-font-size-mobile) !important;
+    padding: var(--header-btn-padding-mobile) !important;
+    border-width: var(--header-btn-border-width-mobile);
+  }
+
+  /* Летающие слова на мобилках */
   .flying-words-wrapper {
     display: none;
   }
 
-  .flying-words-mobile {
+  .flying-words-mobile-top {
     display: block;
-    padding-top: 280px;
     overflow: hidden;
+    width: 100%;
+    padding: var(--flying-words-padding-top-mobile) 0 20px;
+    margin: 0;
+    background: transparent;
   }
 
   .words-row-mobile {
     display: flex;
-    gap: 15px;
+    gap: var(--word-gap-mobile);
     flex-wrap: nowrap;
-    animation: scroll-left 20s linear infinite;
-    justify-content: flex-start;
+    width: fit-content;
+    animation: scroll-left 8s linear infinite;
+    padding: 5px 0;
   }
 
-  .words-row-mobile .word-tag {
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 25px;
+  .words-row-mobile-second {
+    display: flex;
+    gap: var(--word-gap-mobile);
+    flex-wrap: nowrap;
+    width: fit-content;
+    animation: scroll-right 6s linear infinite;
+    padding: 5px 0;
+  }
+
+  .words-row-mobile .word-tag,
+  .words-row-mobile-second .word-tag {
+    padding: var(--word-tag-padding-mobile);
+    font-size: var(--word-tag-font-size-mobile);
+    border-radius: var(--word-tag-border-radius-mobile);
+    white-space: nowrap;
+  }
+
+  /* Hero секция */
+  .hero {
+    padding: var(--hero-padding-mobile);
   }
 
   .hero-title {
-    font-size: 36px;
+    font-size: var(--hero-title-font-size-mobile);
+    font-weight: var(--font-weight-medium);
   }
 
   .hero-subtitle {
-    font-size: 18px;
+    font-size: var(--hero-subtitle-font-size-mobile);
   }
 
+  /* Features секция */
   .features {
-    padding: 40px 0;
+    padding: var(--section-padding-mobile);
   }
 
   .feature-card {
-    padding: 20px;
-    border-radius: 30px;
+    padding: var(--feature-card-padding-mobile);
+    border-radius: var(--feature-card-border-radius-mobile);
   }
 
   .feature-title,
@@ -445,31 +643,59 @@ body {
     font-size: 20px;
   }
 
+  /* Contacts секция */
   .contacts-title {
-    font-size: 36px;
+    font-size: var(--hero-title-font-size-mobile);
+    font-weight: var(--font-weight-medium);
   }
 
   .contacts-subtitle {
-    font-size: 18px;
+    font-size: var(--hero-subtitle-font-size-mobile);
   }
 
   .contacts-cards {
     flex-direction: column;
     align-items: center;
+    gap: var(--contacts-gap-mobile);
+  }
+
+  /* Футер */
+  .footer {
+    padding: var(--footer-padding-mobile);
+    border-top-width: var(--footer-border-top-mobile);
   }
 
   .footer-container {
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    padding: 0 20px;
   }
 
   .footer-links {
     flex-direction: column;
-    gap: 15px;
+    gap: var(--footer-gap-mobile);
   }
 
-  .footer {
-    border-top-width: 3px;
+  .footer-link {
+    font-size: var(--font-size-footer-mobile);
+  }
+
+  .footer-copyright {
+    font-size: var(--font-size-copyright-mobile);
+  }
+}
+
+/* ========== ДОПОЛНИТЕЛЬНЫЕ ПРАВИЛА ========== */
+
+/* Чуть смещаем футер для центрирования (по желанию) */
+.footer-container {
+  /* left: 10px;  — раскомментировать если нужно сместить */
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    left: 0;
+    /* Отключаем смещение на мобилках */
   }
 }
