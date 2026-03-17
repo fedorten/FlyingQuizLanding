@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fedorten.github.io/landing_flyingQuiz/sitemap.xml
+
+Host: https://fedorten.github.io

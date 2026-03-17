@@ -1,0 +1,16 @@
+{
+  "name": "Flying Quiz",
+  "short_name": "FlyingQuiz",
+  "description": "Увлекательная онлайн игра для изучения английских слов",
+  "start_url": "https://fedorten.github.io/landing_flyingQuiz/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f07331",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
