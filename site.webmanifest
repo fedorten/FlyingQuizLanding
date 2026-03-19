@@ -2,7 +2,7 @@
   "name": "Flying Quiz",
   "short_name": "FlyingQuiz",
   "description": "Увлекательная онлайн игра для изучения английских слов",
-  "start_url": "https://fedorten.github.io/landing_flyingQuiz/",
+  "start_url": "https://flying-quiz.ru/about/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f07331",
