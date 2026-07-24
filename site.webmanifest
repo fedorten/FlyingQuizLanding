@@ -2,13 +2,13 @@
   "name": "Flying Quiz",
   "short_name": "FlyingQuiz",
   "description": "Увлекательная онлайн игра для изучения английских слов",
-  "start_url": "https://flying-quiz.ru/about/",
+  "start_url": "https://flying-quiz.ru/about",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f07331",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/about/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
